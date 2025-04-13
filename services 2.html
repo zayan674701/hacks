@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services</title>
+  <style>
+    /* General Body Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f4f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-theme {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #000000;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header.dark-theme {
+      background-color: #f0f4f8;
+      color: rgb(0, 0, 0);
+
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    /* Navigation (Categories Dropdown) */
+    nav {
+      background-color: #000000;
+      padding: 10px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav.dark-theme {
+      background-color: #f0f4f8;
+    }
+
+    nav select {
+      font-size: 1.1em;
+      padding: 10px;
+      background-color: #ffffff;
+      color: #333;
+      border: 1px solid #292929;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    nav.dark-theme select {
+      background-color: #ffffff;
+      color: #000000;
+      border: 1px solid #000000;
+    }
+
+    nav select:hover {
+      background-color: #ffffff;
+    }
+
+    .dark-theme .search-bar{
+      background-color: #f0f0f0;
+    }
+
+    /* Search Bar Styles */
+    .search-bar {
+      text-align: center;
+      background-color: #000000;
+    }
+
+    .search-bar input {
+      font-size: 1.2em;
+      padding: 10px;
+      border: 1px solid #005f73;
+      border-radius: 5px;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    .search-bar input.dark-theme {
+      background-color: #000000;
+      color: #e0e0e0;
+      border: 1px solid #000000;
+    }
+
+    /* Service Section Styles */
+    section {
+      padding: 4em 2em;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section.dark-theme {
+      background-color: #000000;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 2em;
+      color: #000000;
+    }
+
+    h2.dark-theme {
+      color: #ffffff;
+    }
+
+    /* Service List Styles */
+    .service-list {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .service {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service.dark-theme {
+      background: #000000;
+      color: #e0e0e0;
+    }
+
+    .service:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .service h3 {
+      font-size: 1.8em;
+      margin-bottom: 1em;
+      color: #000000;
+    }
+
+    .service.dark-theme h3 {
+      color: #ffffff;
+    }
+
+    .service p {
+      font-size: 1.1em;
+      color: #7d7d7d;
+    }
+
+    .service.dark-theme p {
+      color: #828282;
+    }
+
+    .service .purchase-btn {
+      background-color: #ff6f61;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin-top: 1em;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    .service .purchase-btn:hover {
+      background-color: #ff5a4d;
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #005f73;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    footer.dark-theme {
+      background-color: #37474f;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* WhatsApp Button Style */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      font-size: 24px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Theme Toggle Button */
+    .theme-toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .theme-toggle-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 2em;
+      }
+
+      nav select {
+        width: 80%;
+        font-size: 1em;
+      }
+
+      .service h3 {
+        font-size: 1.6em;
+      }
+
+      .service p {
+        font-size: 1em;
+      }
+    }
+
+    /* Responsive for small screens (phones) */
+    @media (max-width: 480px) {
+      nav select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Our Services</h1>
+  </header>
+
+ 
+  <!-- Categories Dropdown -->
+  <nav>
+    <select onchange="filterCategory(this)">
+      <option value="">Select Category</option>
+      <option value="hacks">Hacks</option>
+      <option value="movies">Movies</option>
+      <option value="phone">Phone Services</option>
+      <option value="games">Games</option>
+      <option value="whatsapp">WhatsApp Services</option>
+      <option value="courses">Courses</option>
+      <option value="freefire">Free Fire</option>
+    </select>
+  </nav>
+
+  <section>
+
+    <h2>HACKING SERVICES</h2>
+    <div class="service-list" id="serviceList">
+       <!-- HACKS -->
+       <div class="service hacks">
+        <h3>LIFE TIME NETFLIX 💀</h3>
+        <p>LIFE TIME NETFLIX IN RS 350</p>
+        <button class="purchase-btn" onclick="window.location.href='https://wa.me/923188998299'">RS 350</button>
+      </div>
+
+      <div class="service hacks">
+        <h3>PHISHING LINK😈</h3>
+        <p>PHISHIG LISNK IS AN ACCOUNT HACKING LINK IN JUST RS 350</p>
+        <button class="purchase-btn" onclick="window.location.href='https://wa.me/923188998299'">RS 350</button>
+      </div>
+
+      <div class="service hacks">
+        <h3> GALERY ALL PHOTOS HACK 🛑</h3>
+        <p> GALERY ALL PHOTOS HACK  RS 1200</p>
+        <button class="purchase-btn" onclick="window.location.href='https://wa.me/923188998299'">RS 1200</button>
+      </div>
+
+      <div class="service hacks">
+        <h3> ANDROID PHONE CRASH🌋</h3>
+        <p>APPLICATION THAT CRASH ANY PHONE IN RS 80</p>
+        <button class="purchase-btn" onclick="window.location.href='https://wa.me/923188998299'">RS 80</button>
+      </div>
+
+      <div class="service hacks">
+        <h3> GALERY ALL PHOTOS HACK 🛑</h3>
+        <p> GALERY ALL PHOTOS HACK  RS 1200</p>
+        <button class="purchase-btn" onclick="window.location.href='https://wa.me/923188998299'">RS 1200</button>
+      </div>
+
+      <!-- Movies Category -->
+      <div class="service movies">
+        <h3>All Types of Movies</h3>
+        <p>ANY TYPE OF MOVIE IN RS 50</p>
+        <button class="purchase-btn" onclick="window.location.href='https://wa.me/923188998299'">RS 50</button>
+      </div>
+
+      <!-- Phone Services Category -->
+      <div class="service phone">
+        <h3>FAKE EP SCREEN SHOT APPLICATION</h3>
+        <p>GET UNLIMETED FAKE EASY PAISA TRANSATION SCREEN SHOTS IN RS 350</p>
+        <button class="purchase-btn" onclick="window.location.href='https://wa.me/923188998299'">RS 350</button>
+      </div>
+
+      <div class="service phone">
+        <h3>CNIC DETAIL</h3>
+        <p>GET COMPLETE DETAIL OF CNIC AND PHONE NO IN RS 30</p>
+        <button class="purchase-btn" onclick="window.location.href='https://wa.me/923188998299'">RS 30</button>
+      </div>
+
+      <!-- Games Category -->
+      <div class="service games">
+        <h3>ALL GAMES HACK</h3>
+        <p>GET ANY TYPE OF GAME HACK IN JUST RS 200</p>
+        <button class="purchase-btn" onclick="window.location.href='https://wa.me/923188998299'">RS 200</button>
+      </div>
+
+      <div class="service games">
+        <h3>Computer Games on Mobile</h3>
+        <p>Enjoy your favorite computer games on your mobile device with high-quality emulation. In rs 200</p>
+        <button class="purchase-btn" onclick="window.location.href='https://wa.me/923188998299'">RS 200</button>
+      </div>
+
+      <!-- WhatsApp Services Category -->
+      <div class="service whatsapp">
+        <h3>WHATSAPP BAN AND UN BAN</h3>
+        <p>BAN AND UN BAN ANY NUMBERS IN RS 250</p>
+        <button class="purchase-btn" onclick="window.location.href='https://wa.me/923188998299'">RS 250</button>
+      </div>
+
+      <!-- Courses Category -->
+      <div class="service courses">
+        <h3>All Courses</h3>
+        <p>ALL TYPES OF COURSES LIKE HACKING AND OTHER COURSES IN RS 250</p>
+        <button class="purchase-btn" onclick="window.location.href='https://wa.me/923188998299'">RS 250</button>
+      </div>
+
+      <!-- Free Fire Category -->
+      <div class="service freefire">
+        <h3>Free Fire Services</h3>
+        <p>FREE FIRE ACCOUNT UN BAN🎭UN BAN IN 24 HOURS</p>
+        <button class="purchase-btn" onclick="window.location.href='https://wa.me/923188998299'">Purchase</button>
+      </div>
+    </div>
+    
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Zayan Dealer. All rights reserved.</p>
+    <p>Contact us on WhatsApp: 03188998299</p>
+  </footer>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/923188998299" target="_blank">
+    <button class="whatsapp-button">💬</button>
+  </a>
+
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle-btn" onclick="toggleTheme()">Toggle Dark/Light</button>
+
+  <script>
+    function filterCategory(selectElement) {
+      let selectedCategory = selectElement.value;
+      let allServices = document.querySelectorAll('.service');
+      
+      allServices.forEach(service => {
+        service.style.display = service.classList.contains(selectedCategory) || selectedCategory === '' ? 'block' : 'none';
+      });
+    }
+
+    function searchService() {
+      let input = document.getElementById('searchInput').value.toLowerCase();
+      let services = document.querySelectorAll('.service');
+      
+      services.forEach(service => {
+        let title = service.querySelector('h3').textContent.toLowerCase();
+        let description = service.querySelector('p').textContent.toLowerCase();
+        
+        if (title.includes(input) || description.includes(input)) {
+          service.style.display = 'block';
+        } else {
+          service.style.display = 'none';
+        }
+      });
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-theme');
+      document.querySelector('header').classList.toggle('dark-theme');
+      document.querySelector('nav').classList.toggle('dark-theme');
+      document.querySelector('footer').classList.toggle('dark-theme');
+      document.querySelectorAll('.service').forEach(service => {
+        service.classList.toggle('dark-theme');
+      });
+      document.querySelectorAll('.service h3').forEach(h3 => {
+        h3.classList.toggle('dark-theme');
+      });
+    }
+  </script>
+</body>
+</html>
