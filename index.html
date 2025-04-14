@@ -242,6 +242,38 @@
       transform: scale(1.1);
     }
 
+    .whatsapp1-btn {
+      background: #25D366;
+      margin-top: 10px;
+    }
+    .whatsapp1-btn:hover {
+      background: #1ebe5d;
+    }
+    .whatsapp1-btn {
+      width: 90%;
+      padding: 12px;
+      background: #28a745;
+      border: none;
+      color: white;
+      font-size: 16px;
+      margin: 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-align: center;
+      justify-content: center;
+      justify-items: center;
+    }
+    .whatsapp1-btn:hover {
+      background: #218838;
+    }
+    .whatsap-btn{
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+      justify-items: center;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       header h1 {
@@ -292,12 +324,15 @@
       <option value="courses">Courses</option>
       <option value="freefire">Free Fire</option>
     </select>
+
+   
   </nav>
 
   <section>
 
     <h2>HACKING SERVICES</h2>
     <div class="service-list" id="serviceList">
+      
        <!-- HACKS -->
        <div class="service hacks">
         <h3>LIFE TIME NETFLIX 💀</h3>
@@ -382,9 +417,13 @@
         <p>FREE FIRE ACCOUNT UN BAN🎭UN BAN IN 24 HOURS</p>
         <button class="purchase-btn" onclick="window.location.href='https://wa.me/923188998299'">Purchase</button>
       </div>
+      
     </div>
     
   </section>
+  <div class="whatsap-btn">
+    <button class="whatsapp1-btn" onclick="joinWhatsapp()">Join WhatsApp Group</button>
+  </div>
 
   <footer>
     <p>&copy; 2025 Zayan Dealer. All rights reserved.</p>
@@ -394,10 +433,12 @@
   <!-- WhatsApp Button -->
   <a href="https://wa.me/923188998299" target="_blank">
     <button class="whatsapp-button">💬</button>
+   
   </a>
+  
 
   <!-- Theme Toggle Button -->
-  <button class="theme-toggle-btn" onclick="toggleTheme()">Toggle Dark/Light</button>
+  <button class="theme-toggle-btn" onclick="toggleTheme()">🌙</button>
 
   <script>
     function filterCategory(selectElement) {
@@ -436,6 +477,11 @@
       document.querySelectorAll('.service h3').forEach(h3 => {
         h3.classList.toggle('dark-theme');
       });
+    }
+
+    
+    function joinWhatsapp() {
+      window.open("https://chat.whatsapp.com/JR3dLMd2WhDFRs8R6D2WkX", "_blank");
     }
   </script>
 </body>
